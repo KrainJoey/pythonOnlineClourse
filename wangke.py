@@ -89,6 +89,7 @@ if __name__ == '__main__':
 
     time.sleep(2)
     driver.switch_to.window(driver.window_handles[-1])
+    time.sleep(1)
     #选择从第几课时开始
     driver.find_element_by_xpath("/html/body/div[5]/div[1]/div[2]/div[3]/div[3]/div[1]/h3/span[3]/a").click()
     for i in range(22):
