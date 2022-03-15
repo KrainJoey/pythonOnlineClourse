@@ -110,6 +110,8 @@ if __name__ == '__main__':
             jindu=int(float(driver.find_element_by_xpath("//*[@id='video']/div[5]/div[5]/div").get_attribute("aria-valuenow")))
             print(jindu)
             time.sleep(1)
+            if (jindu<50):
+                time.sleep(600)
             if(jindu>=70 or jindu<=1):
                 time.sleep(2)
                 driver.switch_to.window(driver.window_handles[-1])
