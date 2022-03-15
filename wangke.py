@@ -21,11 +21,11 @@ def get_file_content(filePath):
         return f.read()
 
 if __name__ == '__main__':
-    # 百度api
-    APP_ID = '25761652'
-    API_KEY = 'aOdASs7tivhsGhzV5Uyw42d1'
-    SECRET_KEY = '2IRKG97oyZhayCSXjyX5S5DOaLLBqLeU'
-    client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+    # 百度智能云api
+    #APP_ID = ''
+    #API_KEY = ''
+    #SECRET_KEY = ''
+    #client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
 
     #chrome驱动
     driver_path = "C:\Program Files\Google\Chrome\Application\chromedriver.exe"
@@ -35,12 +35,12 @@ if __name__ == '__main__':
     time.sleep(2)
     #页面截图
     file_name="D:/pythonProject/Img/test.png"
-    driver.find_element_by_xpath("//input[@type='text' and @name='userName' and @id='userName' and @class='userTxt']").send_keys(Keys.TAB)
-    driver.save_screenshot(file_name)
+    #driver.find_element_by_xpath("//input[@type='text' and @name='userName' and @id='userName' and @class='userTxt']").send_keys(Keys.TAB)
+    #driver.save_screenshot(file_name)
 
 
-    account="2231160114"
-    password="Xz237211."
+    account=""   #学号
+    password=""  #密码
     driver.find_element_by_xpath("//input[@type='text' and @name='userName' and @id='userName' and @class='userTxt']").send_keys(account)
     driver.find_element_by_xpath("//input[@type='password' and @name='passWord' and @id='passWord' and @class='userTxt fl']").send_keys(password)
 
@@ -75,22 +75,21 @@ if __name__ == '__main__':
     #登录点击
     driver.find_element_by_xpath("//a[@class='w_blue_btn tologin']").click()
 
-    #选择课程
+    #选择课程 ，刷哪个放出来哪个，其余注释掉
     time.sleep(2)
     sreach_window = driver.switch_to.frame("frame_content")
-    #a=driver.find_element_by_xpath("//a[@href=‘/studyApp/setViewTime?_enctoken=5a6ed44ec8a52c0ebe8fe15a0f73604c&xkid=702846’and @class='fr topBtn']")#C语言
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[1]/a[1]")#C语言
     driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[2]/a[1]").click()#形式政策
-
-    # c=driver.find_element_by_xpath("body > div.wrap870 > div.bxCourse > div:nth-child(6) > a.fr.topBtn")#大学英语
-    # d=driver.find_element_by_xpath("body > div.wrap870 > div.bxCourse > div:nth-child(8) > a.fr.topBtn")#中国近代史纲要
-    # e=driver.find_element_by_xpath("body > div.wrap870 > div.bxCourse > div:nth-child(10) > a.fr.topBtn")#计算机应用基础
-    # f=driver.find_element_by_xpath("body > div.wrap870 > div.bxCourse > div:nth-child(12) > a.fr.topBtn")#离散数学
-    # g=driver.find_element_by_xpath("body > div.wrap870 > div.bxCourse > div:nth-child(14) > a.fr.topBtn")#现代远程教育概论
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[3]/a[1]")#大学英语
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[4]/a[1]")#中国近代史纲要
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[5]/a[1]")#计算机应用基础
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[6]/a[1]")#离散数学
+    #driver.find_element_by_xpath("/html/body/div[3]/div[2]/div[7]/a[1]")#现代远程教育概论
 
     time.sleep(2)
     driver.switch_to.window(driver.window_handles[-1])
     time.sleep(1)
-    #选择从第几课时开始
+    #选择从第几课时开始,F12复制第几课时的xpath路径放入下面双引号中
     driver.find_element_by_xpath("/html/body/div[5]/div[1]/div[2]/div[3]/div[3]/div[1]/h3/span[3]/a").click()
     for i in range(22):
         time.sleep(1)
