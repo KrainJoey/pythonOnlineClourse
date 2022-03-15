@@ -90,8 +90,10 @@ if __name__ == '__main__':
     time.sleep(2)
     driver.switch_to.window(driver.window_handles[-1])
     #选择从第几课时开始
-    driver.find_element_by_xpath("/html/body/div[5]/div[1]/div[2]/div[3]/div[1]/div[1]/h3/span[3]/a").click()
+    driver.find_element_by_xpath("/html/body/div[5]/div[1]/div[2]/div[3]/div[3]/div[1]/h3/span[3]/a").click()
     for i in range(22):
+        time.sleep(1)
+        driver.switch_to.window(driver.window_handles[-1])
         time.sleep(2)
         driver.switch_to.frame(driver.find_element_by_xpath("//*[@id='iframe']"))
         time.sleep(2)
@@ -99,18 +101,26 @@ if __name__ == '__main__':
         time.sleep(2)
         # 播放
         driver.find_element_by_xpath("//*[@id='video']/button").click()
-        time.sleep(900)
-        #暂停
-        driver.find_element_by_xpath("//*[@id='video']/div[5]/button[1]").click()
-        time.sleep(1)
-        #获取当前进度
-        jindu=driver.find_element_by_xpath("//*[@id='video']/div[5]/div[5]/div").get_attribute("aria-valuenow")
-        if(jindu>80):
-            time.sleep(2)
-            driver.switch_to.window(driver.window_handles[-1])
-            #下一章
-            driver.find_element_by_xpath("//*[@id='mainid']/div[1]/div[2]").click()
-
+        time.sleep(600)
+        for i in range(10):
+            #暂停
+            driver.find_element_by_xpath("//*[@id='video']/div[5]/button[1]").click()
+            time.sleep(1)
+            #获取当前进度
+            jindu=int(float(driver.find_element_by_xpath("//*[@id='video']/div[5]/div[5]/div").get_attribute("aria-valuenow")))
+            print(jindu)
+            time.sleep(1)
+            if(jindu>70):
+                time.sleep(2)
+                driver.switch_to.window(driver.window_handles[-1])
+                time.sleep(2)
+                #下一章
+                driver.find_element_by_xpath("//*[@id='mainid']/div[1]/div[2]").click()
+                break
+            else:
+                time.sleep(120)
+                #播放
+                driver.find_element_by_xpath("//*[@id='video']/div[5]/button[1]").click()
 
 
 
