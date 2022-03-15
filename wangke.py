@@ -113,7 +113,7 @@ if __name__ == '__main__':
             if (jindu<50):
                 driver.find_element_by_xpath("//*[@id='video']/div[5]/button[1]").click()
                 time.sleep(600)
-                break
+                continue
             if(jindu>=70 or jindu<=1):
                 time.sleep(2)
                 driver.switch_to.window(driver.window_handles[-1])
