@@ -1,4 +1,4 @@
-# pythonOnlineClourse
+# pythonOnlineCourse
 自动化挂网课脚本
 
 上半段代码注释掉的为 百度智能云api识别登录图片验证码，有一定误差 不建议使用，好奇可以放出来玩
